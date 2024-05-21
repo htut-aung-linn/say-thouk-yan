@@ -7,19 +7,8 @@ module.exports.handler = schedule('0 * * * *', async (event) => {
   //  http://test-project-h.000.pe/Update.php
 
   // Making an HTTP GET request using fetch
-fetch('http://test-project-h.000.pe/Update.php')
-  .then(response => {
-    if (!response.ok) {
-      throw new Error('Network response was not ok ' + response.statusText);
-    }
-    return response.json(); // Parsing the JSON data from the response
-  })
-  .then(data => {
-    console.log(data); // Handling the data from the response
-  })
-  .catch(error => {
-    console.error('There has been a problem with your fetch operation:', error);
-  });
+const fetch = require('node-fetch'); // Making an HTTP GET request 
+  fetch('http://test-project-h.000.pe/Update.php').then(response => response.json()).then(data => { console.log(data); }).catch(error => { console.error('Error making GET request:', error); });
 
   console.log(`Next function run at ${eventBody.next_run}.`)
 
