@@ -10,7 +10,7 @@ module.exports.handler = schedule('*/5 * * * *', async (event) => {
 const https = require('https');
 
 // Making an HTTP GET request
-const url = 'http://test-project-h.000.pe/Update.php';
+const url = 'https://family-financial.free.nf/public/History/5';
 
 https.get(url, (resp) => {
   let data = '';
