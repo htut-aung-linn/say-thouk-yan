@@ -8,9 +8,9 @@ module.exports.handler = schedule('*/5 * * * *', async (event) => {
 
   // Making an HTTP GET request using fetch
 const https = require('https');
-
+console.log('Start running');
 // Making an HTTP GET request
-const url = 'https://family-financial.free.nf/public/History/5';
+const url = 'http://test-project-h.000.pe/Update.php';
 
 https.get(url, (resp) => {
   let data = '';
