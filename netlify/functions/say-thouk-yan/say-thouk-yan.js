@@ -10,13 +10,14 @@ module.exports.handler = schedule('*/5 * * * *', async (event) => {
 const https = require('https');
 console.log('Start running');
 // Making an HTTP GET request
-const url = 'https://test-project-h.000.pe/Update.php';
+const url = 'https://test-project-h.000.pe/Update.php?i=1';
 
 https.get(url, (resp) => {
   let data = '';
-
+console.log('open link');
   // A chunk of data has been received.
   resp.on('data', (chunk) => {
+    console.log('getting data');
     data += chunk;
   });
 
