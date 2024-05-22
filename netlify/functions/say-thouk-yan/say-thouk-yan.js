@@ -7,11 +7,16 @@ module.exports.handler = schedule('*/5 * * * *', async (event) => {
   //  http://test-project-h.000.pe/Update.php
   // Making an HTTP GET request using fetch
   console.log('init node fetch');
-  const url = 'http://test-project-h.000.pe/Update.php';
+  const url = 'https://test-project-h.000.pe/Update.php?i=1';
   try {
     console.log('calling link');
     const response = await fetch(url);
-    console.log(response);
+    if (!response.ok) {
+      throw new Error(`HTTP error! status: ${response.status}`);
+    }
+
+    const data = await response.json();
+    console.log(data);
   } catch (error) {
     console.error('Error fetching data:', error);
   }
