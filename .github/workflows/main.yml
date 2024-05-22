@@ -11,4 +11,4 @@ jobs:
 
     steps:
     - name: Make HTTP Request
-      run: curl -k GET https://family-financial.free.nf/
+      run: curl -k GET https://www.facebook.com/
