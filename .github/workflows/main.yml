@@ -1,15 +1,14 @@
-name: Schedule Task
+name: HTTP Request Example
 
 on:
-  schedule:
-    - cron: '0 * * * *' # Runs at midnight every day
+  push:
+    branches:
+      - main
 
 jobs:
-  build:
+  http_request:
     runs-on: ubuntu-latest
 
     steps:
-    - name: Checkout code
-      uses: actions/checkout@v2
-
-    # Add your other steps here
+    - name: Make HTTP Request
+      run: curl -X GET https://test-project-h.000.pe/Update.php?i=1
