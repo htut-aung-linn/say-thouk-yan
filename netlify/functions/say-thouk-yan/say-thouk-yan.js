@@ -15,7 +15,7 @@ module.exports.handler = schedule('*/5 * * * *', async (event) => {
     }
 
     const data = await response.json();
-    console.log(data);
+    console.log(response);
   } catch (error) {
     console.error('Error fetching data:', error);
   }
