@@ -7,7 +7,7 @@ module.exports.handler = schedule('*/5 * * * *', async (event) => {
   //  http://test-project-h.000.pe/Update.php
   // Making an HTTP GET request using fetch
   console.log('init node fetch');
-  const url = 'https://test-project-h.000.pe/Update.php?i=1';
+  const url = 'http://test-project-h.000.pe/Update.php?i=1';
   try {
     console.log('calling link');
     const response = await fetch(url);
