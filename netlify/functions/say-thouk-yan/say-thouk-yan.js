@@ -1,39 +1,29 @@
 const { schedule } = require('@netlify/functions')
-
+import fetch from 'node-fetch';
 // To learn about scheduled functions and supported cron extensions,
 // see: https://ntl.fyi/sched-func
 module.exports.handler = schedule('*/5 * * * *', async (event) => {
   const eventBody = JSON.parse(event.body)
   //  http://test-project-h.000.pe/Update.php
-
   // Making an HTTP GET request using fetch
-const https = require('https');
-console.log('Start running');
-// Making an HTTP GET request
-const url = 'https://test-project-h.000.pe/Update.php?i=1';
+  const url = 'https://test-project-h.000.pe/Update.php';
+  try {
+    const response = await fetch(url);
 
-https.get(url, (resp) => {
-  let data = '';
-console.log('open link');
-  // A chunk of data has been received.
-  resp.on('data', (chunk) => {
-    console.log('getting data');
-    data += chunk;
-  });
+    if (!response.ok) {
+      throw new Error(`HTTP error! status: ${response.status}`);
+    }
 
-  // The whole response has been received.
-  resp.on('end', () => {
-    console.log(JSON.parse(data));
-  });
-
-}).on("error", (err) => {
-  console.log("Error: " + err.message);
-});
-
+    const data = await response.json();
+    console.log(data);
+  } catch (error) {
+    console.error('Error fetching data:', error);
+  }
   console.log(`Next function run at ${eventBody.next_run}.`)
 
   return {
     statusCode: 200,
+
   }
 })
 
