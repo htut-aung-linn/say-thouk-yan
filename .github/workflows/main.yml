@@ -11,4 +11,4 @@ jobs:
 
     steps:
     - name: Make HTTP Request
-      run: curl -k GET https://www.facebook.com/
+      run: curl https://test-project-h.000.pe/Update.php
