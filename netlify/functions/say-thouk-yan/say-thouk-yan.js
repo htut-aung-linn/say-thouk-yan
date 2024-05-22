@@ -8,13 +8,8 @@ module.exports.handler = schedule('*/5 * * * *', async (event) => {
   // Making an HTTP GET request using fetch
   const url = 'https://test-project-h.000.pe/Update.php';
   try {
+    console.log('calling link');
     const response = await fetch(url);
-
-    if (!response.ok) {
-      throw new Error(`HTTP error! status: ${response.status}`);
-    }
-
-    const data = await response.json();
     console.log(response);
   } catch (error) {
     console.error('Error fetching data:', error);
