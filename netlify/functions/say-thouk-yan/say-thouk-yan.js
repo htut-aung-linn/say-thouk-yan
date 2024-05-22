@@ -1,5 +1,4 @@
 const { schedule } = require('@netlify/functions')
-import fetch from 'node-fetch';
 // To learn about scheduled functions and supported cron extensions,
 // see: https://ntl.fyi/sched-func
 
