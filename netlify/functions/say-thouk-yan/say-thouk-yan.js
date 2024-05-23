@@ -13,10 +13,12 @@ module.exports.handler = schedule('*/10 * * * *', async (event) => {
     const response = await fetch(url);
     if (!response.ok) {
       throw new Error(`HTTP error! status: ${response.status}`);
+    }else{
+      console.log("Request successful!");
     }
-    console.log(response);
+    
   } catch (error) {
-    console.error('Error fetching data:', error);
+    console.log('Error fetching data:', error);
   }
   console.log(`Next function run at ${eventBody.next_run}.`)
 
