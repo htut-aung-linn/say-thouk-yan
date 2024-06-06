@@ -1,7 +1,7 @@
 const { schedule } = require('@netlify/functions')
 // To learn about scheduled functions and supported cron extensions,
 // see: https://ntl.fyi/sched-func
-
+/*
 module.exports.handler = schedule('*/10 * * * *', async (event) => {
   const eventBody = JSON.parse(event.body)
   //  http://test-project-h.000.pe/Update.php
@@ -27,3 +27,4 @@ module.exports.handler = schedule('*/10 * * * *', async (event) => {
 
   }
 })
+*/
